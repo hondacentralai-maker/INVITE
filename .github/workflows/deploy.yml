@@ -38,7 +38,8 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy dist --project-name=invite-cart --branch=main
+          wranglerVersion: '4.168.0'
+          command: pages deploy dist --project-name=invite-cart --branch=main --commit-dirty=true
 
   deploy-supabase-edge-functions:
     name: Deploy Supabase Edge Functions
@@ -64,4 +65,5 @@ jobs:
           fi
           supabase functions deploy marasim-pin-auth \
             --project-ref "$SUPABASE_PROJECT_ID" \
-            --no-verify-jwt
+            --no-verify-jwt \
+            --yes
