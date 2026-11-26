@@ -217,7 +217,7 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({ onOpenAuth }) => {
         </div>
         <Link
           to="/studio"
-          className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#151412] text-[#FAF6EE] text-sm font-bold hover:bg-[#32402E] transition-colors"
+          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-[#151412] text-[#FAF6EE] text-sm font-bold hover:bg-[#32402E] transition-colors"
         >
           <Plus className="w-4 h-4 text-[#D8B86F]" aria-hidden="true" />
           <span>{isAr ? 'إنشاء دعوة جديدة' : 'New Invitation'}</span>
@@ -375,7 +375,7 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({ onOpenAuth }) => {
       )}
 
       {/* Security: Phone & Recovery PIN */}
-      <section className="rounded-3xl border border-[#B89246]/30 bg-white p-6 space-y-4">
+      <section className="rounded-3xl border border-[#B89246]/30 bg-white p-4 sm:p-6 space-y-4">
         <div className="flex items-center gap-3">
           <KeyRound className="w-6 h-6 text-[#B89246]" aria-hidden="true" />
           <div>
@@ -451,7 +451,7 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({ onOpenAuth }) => {
       </section>
 
       {/* Packages & My Orders */}
-      <section className="rounded-3xl border border-[#B89246]/30 bg-white p-6 space-y-6">
+      <section className="rounded-3xl border border-[#B89246]/30 bg-white p-4 sm:p-6 space-y-6">
         <div className="flex items-center gap-3">
           <Crown className="w-6 h-6 text-[#B89246]" aria-hidden="true" />
           <div>

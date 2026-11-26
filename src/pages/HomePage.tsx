@@ -214,7 +214,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenAuth }) => {
                         key={tpl.id}
                         type="button"
                         onClick={() => setHeroTemplateIndex(idx)}
-                        className={`shrink-0 inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold border transition-all ${
+                        className={`shrink-0 inline-flex items-center gap-2 min-h-9 px-3.5 py-2 rounded-full text-xs font-bold border transition-all ${
                           active
                             ? 'bg-[#32402E] text-[#FAF6EE] border-[#32402E] shadow-sm'
                             : 'bg-white/85 text-[#3A352C] border-[#B89246]/30 hover:border-[#B89246]'
@@ -325,11 +325,11 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenAuth }) => {
       </section>
 
       {/* TEMPLATES GALLERY PREVIEW */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-10">
+      <section className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-7 sm:space-y-10">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div className="space-y-2">
             <h2
-              className="text-3xl sm:text-4xl font-bold text-[#151412]"
+              className="text-2xl sm:text-4xl font-bold text-[#151412]"
               style={{ fontFamily: isAr ? '"Amiri", serif' : '"Cormorant Garamond", serif' }}
             >
               {isAr ? 'مكتبة القوالب الفاخرة (٧ فئات متكاملة)' : 'Curated Atelier Templates'}
@@ -478,10 +478,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenAuth }) => {
 
       {/* LIVE PUBLISHED INVITATIONS SHOWCASE */}
       {featuredInvites.length > 0 && (
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-8">
+        <section className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-6 sm:space-y-8">
           <div className="space-y-2">
             <h2
-              className="text-3xl sm:text-4xl font-bold text-[#151412]"
+              className="text-2xl sm:text-4xl font-bold text-[#151412]"
               style={{ fontFamily: isAr ? '"Amiri", serif' : '"Cormorant Garamond", serif' }}
             >
               {isAr ? 'دعوات حية منشورة على المنصة' : 'Live Published Showcase Invitations'}
@@ -493,13 +493,13 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenAuth }) => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
             {featuredInvites.map((inv) => (
               <div
                 key={inv.id}
                 className="rounded-2xl border border-[#B89246]/30 bg-white overflow-hidden shadow-sm hover:shadow-xl transition-all flex flex-col"
               >
-                <div className="p-4">
+                <div className="p-2.5 sm:p-4">
                   <InvitationRenderer invitation={inv} compactPreview />
                 </div>
                 <div className="px-5 py-4 border-t border-[#B89246]/20 bg-[#FAF6EE] flex items-center justify-between gap-3">
@@ -509,7 +509,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenAuth }) => {
                   </div>
                   <Link
                     to={`/i/${inv.slug}`}
-                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#151412] text-[#FAF6EE] text-xs font-bold hover:bg-[#32402E] transition-colors"
+                    className="inline-flex items-center gap-1.5 min-h-10 px-4 py-2 rounded-full bg-[#151412] text-[#FAF6EE] text-xs font-bold hover:bg-[#32402E] transition-colors"
                   >
                     <span>{isAr ? 'فتح الدعوة' : 'Open Live'}</span>
                     <ExternalLink className="w-3.5 h-3.5" aria-hidden="true" />

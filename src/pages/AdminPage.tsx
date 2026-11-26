@@ -359,7 +359,7 @@ export const AdminPage: React.FC<AdminPageProps> = ({ onOpenAuth }) => {
     <main id="main-content" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-6">
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <span className="w-11 h-11 rounded-2xl bg-[#151412] text-[#D8B86F] flex items-center justify-center">
+          <span className="w-11 h-11 rounded-2xl bg-[#151412] text-[#D8B86F] flex items-center justify-center shrink-0">
             <Crown className="w-5 h-5" aria-hidden="true" />
           </span>
           <div>
@@ -499,8 +499,8 @@ export const AdminPage: React.FC<AdminPageProps> = ({ onOpenAuth }) => {
 
       {/* TAB 2: INVITATIONS */}
       {activeTab === 'invitations' && (
-        <div className="rounded-3xl border border-[#B89246]/30 bg-white p-6 overflow-x-auto">
-          <table className="w-full text-sm text-start border-collapse">
+        <div className="rounded-2xl sm:rounded-3xl border border-[#B89246]/30 bg-white p-3.5 sm:p-6 overflow-x-auto">
+          <table className="w-full min-w-[600px] text-sm text-start border-collapse">
             <caption className="visually-hidden">{isAr ? 'إدارة الدعوات' : 'Invitations management'}</caption>
             <thead>
               <tr className="border-b border-[#B89246]/25 text-xs text-[#524B40]">
@@ -626,8 +626,8 @@ export const AdminPage: React.FC<AdminPageProps> = ({ onOpenAuth }) => {
 
       {/* TAB 4: USERS & PERMISSIONS */}
       {activeTab === 'users' && (
-        <div className="rounded-3xl border border-[#B89246]/30 bg-white p-6 overflow-x-auto">
-          <table className="w-full text-sm text-start border-collapse">
+        <div className="rounded-2xl sm:rounded-3xl border border-[#B89246]/30 bg-white p-3.5 sm:p-6 overflow-x-auto">
+          <table className="w-full min-w-[600px] text-sm text-start border-collapse">
             <caption className="visually-hidden">{isAr ? 'إدارة المستخدمين والصلاحيات' : 'Users and permissions'}</caption>
             <thead>
               <tr className="border-b border-[#B89246]/25 text-xs text-[#524B40]">
@@ -694,9 +694,9 @@ export const AdminPage: React.FC<AdminPageProps> = ({ onOpenAuth }) => {
       {/* TAB 5: ORDERS & PACKAGES */}
       {activeTab === 'orders' && (
         <div className="space-y-6">
-          <div className="rounded-3xl border border-[#B89246]/30 bg-white p-6 overflow-x-auto">
+          <div className="rounded-2xl sm:rounded-3xl border border-[#B89246]/30 bg-white p-3.5 sm:p-6 overflow-x-auto">
             <h2 className="font-bold text-base mb-4">{isAr ? 'طلبات الاشتراكات' : 'Subscription Orders'}</h2>
-            <table className="w-full text-sm text-start border-collapse">
+            <table className="w-full min-w-[540px] text-sm text-start border-collapse">
               <caption className="visually-hidden">{isAr ? 'طلبات الاشتراكات' : 'Subscription orders'}</caption>
               <thead>
                 <tr className="border-b border-[#B89246]/25 text-xs text-[#524B40]">
@@ -829,25 +829,25 @@ export const AdminPage: React.FC<AdminPageProps> = ({ onOpenAuth }) => {
           {/* Fonts Catalog */}
           <div className="rounded-3xl border border-[#B89246]/30 bg-white p-6 space-y-4">
             <h2 className="font-bold text-base">{isAr ? 'إدارة خطوط المنصة' : 'Fonts Catalog'}</h2>
-            <form onSubmit={handleAddFont} className="flex flex-wrap gap-2">
+            <form onSubmit={handleAddFont} className="grid grid-cols-1 sm:flex gap-2">
               <input
                 type="text"
                 required
                 value={newFontFamily}
                 onChange={(e) => setNewFontFamily(e.target.value)}
                 placeholder="Google Font Family (e.g. Scheherazade New)"
-                className="flex-1 min-h-10 px-3 rounded-xl border border-[#B89246]/35 text-xs"
+                className="flex-1 min-h-11 px-3 rounded-xl border border-[#B89246]/35 text-xs"
               />
               <input
                 type="text"
                 value={newFontAr}
                 onChange={(e) => setNewFontAr(e.target.value)}
                 placeholder={isAr ? 'الاسم بالعربي' : 'Arabic display name'}
-                className="w-36 min-h-10 px-3 rounded-xl border border-[#B89246]/35 text-xs"
+                className="w-full sm:w-36 min-h-11 px-3 rounded-xl border border-[#B89246]/35 text-xs"
               />
               <button
                 type="submit"
-                className="px-4 py-2 rounded-xl bg-[#151412] text-[#FAF6EE] text-xs font-bold"
+                className="min-h-11 px-4 py-2 rounded-xl bg-[#151412] text-[#FAF6EE] text-xs font-bold"
               >
                 {isAr ? 'إضافة خط' : 'Add Font'}
               </button>

@@ -610,15 +610,15 @@ export const StudioPage: React.FC<StudioPageProps> = ({ onOpenAuth }) => {
       </div>
 
       {/* Mobile Sticky View Mode Switcher */}
-      <div className="xl:hidden sticky top-18 z-40 flex justify-center py-1">
+      <div className="xl:hidden sticky top-18 z-40 flex justify-center py-1 px-2">
         <div className="inline-flex p-1 rounded-full bg-[#151412] text-[#FAF6EE] shadow-xl border border-[#D8B86F]/50 backdrop-blur-md">
           <button
             type="button"
             onClick={() => setMobileStudioView('editor')}
-            className={`px-4 py-1.5 rounded-full text-xs font-bold flex items-center gap-1.5 transition-colors ${
+            className={`min-h-10 px-4 py-2 rounded-full text-xs font-bold flex items-center gap-1.5 transition-colors ${
               mobileStudioView === 'editor'
                 ? 'bg-[#D8B86F] text-[#151412] shadow'
-                : 'text-white/80 hover:text-white'
+                : 'text-white/85 hover:text-white'
             }`}
           >
             <PenTool className="w-3.5 h-3.5" aria-hidden="true" />
@@ -627,10 +627,10 @@ export const StudioPage: React.FC<StudioPageProps> = ({ onOpenAuth }) => {
           <button
             type="button"
             onClick={() => setMobileStudioView('preview')}
-            className={`px-4 py-1.5 rounded-full text-xs font-bold flex items-center gap-1.5 transition-colors ${
+            className={`min-h-10 px-4 py-2 rounded-full text-xs font-bold flex items-center gap-1.5 transition-colors ${
               mobileStudioView === 'preview'
                 ? 'bg-[#D8B86F] text-[#151412] shadow'
-                : 'text-white/80 hover:text-white'
+                : 'text-white/85 hover:text-white'
             }`}
           >
             <Sparkles className="w-3.5 h-3.5" aria-hidden="true" />
@@ -663,7 +663,7 @@ export const StudioPage: React.FC<StudioPageProps> = ({ onOpenAuth }) => {
                   type="button"
                   aria-selected={selected}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`flex-1 min-w-[76px] sm:min-w-[96px] flex flex-col items-center gap-1 py-2.5 sm:py-3 px-1.5 sm:px-2 text-[10px] sm:text-xs font-bold border-b-2 transition-colors shrink-0 ${
+                  className={`flex-1 min-w-[72px] sm:min-w-[96px] min-h-12 flex flex-col items-center justify-center gap-1 py-2.5 sm:py-3 px-2 text-[10px] sm:text-xs font-bold border-b-2 transition-colors shrink-0 ${
                     selected
                       ? 'border-[#151412] bg-white text-[#151412]'
                       : 'border-transparent text-[#524B40] hover:text-[#151412]'
@@ -676,7 +676,7 @@ export const StudioPage: React.FC<StudioPageProps> = ({ onOpenAuth }) => {
             })}
           </div>
 
-          <div className="p-4 sm:p-6 space-y-5 sm:space-y-6 max-h-[calc(100dvh-13rem)] overflow-y-auto">
+          <div className="p-3.5 sm:p-6 space-y-5 sm:space-y-6 xl:max-h-[calc(100dvh-13rem)] xl:overflow-y-auto">
             {/* TAB 1: STYLE & TEMPLATE */}
             {activeTab === 'style' && (
               <div className="space-y-5 sm:space-y-6">
@@ -931,12 +931,12 @@ export const StudioPage: React.FC<StudioPageProps> = ({ onOpenAuth }) => {
                       ? 'تفعيل وضع البوستر الفاخر (مثل بوستر السهرة أو بوستر أفراح العرب ليلتين)'
                       : 'Poster Mode Layout'}
                   </p>
-                  <div className="grid grid-cols-3 gap-2">
+                  <div className="grid grid-cols-3 gap-1.5 sm:gap-2">
                     {(
                       [
-                        { id: 'stage_poster', ar: 'بوستر السهرة 3D', en: 'Stage 3D' },
-                        { id: 'split_poster', ar: 'بوستر أفراح العرب', en: 'Split Heritage' },
-                        { id: 'classic_card', ar: 'بطاقة كلاسيكية', en: 'Classic Card' },
+                        { id: 'stage_poster', ar: 'بوستر السهرة', en: 'Stage 3D' },
+                        { id: 'split_poster', ar: 'بوستر الليلتين', en: '2-Night' },
+                        { id: 'classic_card', ar: 'بطاقة رسمية', en: 'Classic Card' },
                       ] as const
                     ).map((m) => {
                       const active = (draft.theme_config.layoutMode || 'classic_card') === m.id;
@@ -945,7 +945,7 @@ export const StudioPage: React.FC<StudioPageProps> = ({ onOpenAuth }) => {
                           key={m.id}
                           type="button"
                           onClick={() => switchLayoutMode(m.id)}
-                          className={`py-2 px-2 rounded-xl text-xs font-bold border ${active
+                          className={`min-h-10 py-2 px-1.5 rounded-xl text-[11px] sm:text-xs font-bold border ${active
                               ? 'bg-[#151412] text-[#FAF6EE] border-[#151412]'
                               : 'bg-white text-[#151412] border-[#B89246]/35'
                             }`}
@@ -1405,7 +1405,7 @@ export const StudioPage: React.FC<StudioPageProps> = ({ onOpenAuth }) => {
                       />
                     </label>
                     {draft.gallery_urls.length > 0 && (
-                      <div className="grid grid-cols-4 gap-2 mt-3">
+                      <div className="grid grid-cols-3 sm:grid-cols-4 gap-2 mt-3">
                         {draft.gallery_urls.map((url, idx) => (
                           <div key={`${url}-${idx}`} className="relative group aspect-square rounded-xl overflow-hidden border">
                             <img src={url} alt="" className="w-full h-full object-cover" />
@@ -1418,7 +1418,7 @@ export const StudioPage: React.FC<StudioPageProps> = ({ onOpenAuth }) => {
                                   gallery_urls: prev.gallery_urls.filter((_, i) => i !== idx),
                                 }))
                               }
-                              className="absolute top-1 end-1 w-6 h-6 rounded-full bg-black/70 text-white flex items-center justify-center text-xs"
+                              className="absolute top-1 end-1 w-7 h-7 rounded-full bg-black/75 text-white flex items-center justify-center text-sm"
                             >
                               ×
                             </button>
@@ -1626,27 +1626,27 @@ export const StudioPage: React.FC<StudioPageProps> = ({ onOpenAuth }) => {
                         key={item.id}
                         className="rounded-xl border border-[#B89246]/30 bg-[#FAF6EE]/60 p-3 space-y-2"
                       >
-                        <div className="flex items-center gap-2">
+                        <div className="flex flex-wrap sm:flex-nowrap items-center gap-2">
                           <input
                             type="text"
                             dir="ltr"
                             value={item.time}
                             onChange={(e) => updateScheduleRow(item.id, { time: e.target.value })}
                             placeholder="8:30 PM"
-                            className="w-28 min-h-9 px-2.5 rounded-lg border border-[#B89246]/30 bg-white text-xs font-bold"
+                            className="w-28 sm:w-28 min-h-10 px-2.5 rounded-lg border border-[#B89246]/30 bg-white text-xs font-bold"
                           />
                           <input
                             type="text"
                             value={item.titleAr}
                             onChange={(e) => updateScheduleRow(item.id, { titleAr: e.target.value })}
                             placeholder={isAr ? 'عنوان الفقرة (عربي)' : 'Title (Arabic)'}
-                            className="flex-1 min-h-9 px-2.5 rounded-lg border border-[#B89246]/30 bg-white text-xs font-semibold"
+                            className="flex-1 min-w-[140px] min-h-10 px-2.5 rounded-lg border border-[#B89246]/30 bg-white text-xs font-semibold"
                           />
                           <button
                             type="button"
                             onClick={() => removeScheduleRow(item.id)}
                             aria-label={isAr ? 'حذف الفقرة' : 'Remove segment'}
-                            className="p-2 text-red-700 hover:bg-red-50 rounded-lg"
+                            className="p-2.5 text-red-700 hover:bg-red-50 rounded-lg shrink-0"
                           >
                             <Trash2 className="w-4 h-4" />
                           </button>
@@ -1909,12 +1909,12 @@ export const StudioPage: React.FC<StudioPageProps> = ({ onOpenAuth }) => {
             mobileStudioView === 'preview' ? 'block' : 'hidden xl:block'
           }`}
         >
-          <div className="flex flex-wrap items-center justify-between gap-2.5 rounded-2xl border border-[#B89246]/30 bg-white p-3 sm:px-4 sm:py-3">
-            <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center justify-between gap-2.5 rounded-2xl border border-[#B89246]/30 bg-white p-2.5 sm:px-4 sm:py-3">
+            <div className="hidden sm:flex items-center gap-2">
               <button
                 type="button"
                 onClick={() => setPreviewDevice('desktop')}
-                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold ${
+                className={`inline-flex items-center gap-1.5 min-h-9 px-3 py-1.5 rounded-lg text-xs font-bold ${
                   previewDevice === 'desktop'
                     ? 'bg-[#151412] text-[#FAF6EE]'
                     : 'text-[#524B40] hover:bg-[#FAF6EE]'
@@ -1926,7 +1926,7 @@ export const StudioPage: React.FC<StudioPageProps> = ({ onOpenAuth }) => {
               <button
                 type="button"
                 onClick={() => setPreviewDevice('mobile')}
-                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold ${
+                className={`inline-flex items-center gap-1.5 min-h-9 px-3 py-1.5 rounded-lg text-xs font-bold ${
                   previewDevice === 'mobile'
                     ? 'bg-[#151412] text-[#FAF6EE]'
                     : 'text-[#524B40] hover:bg-[#FAF6EE]'
@@ -1940,7 +1940,7 @@ export const StudioPage: React.FC<StudioPageProps> = ({ onOpenAuth }) => {
             <button
               type="button"
               onClick={() => setPreviewEnvelopeClosed((v) => !v)}
-              className="px-3 py-1.5 rounded-lg border border-[#B89246]/40 bg-[#FAF6EE] text-xs font-bold text-[#151412]"
+              className="w-full sm:w-auto min-h-10 px-4 py-2 rounded-xl border border-[#B89246]/40 bg-[#FAF6EE] text-xs font-bold text-[#151412]"
             >
               {previewEnvelopeClosed
                 ? isAr

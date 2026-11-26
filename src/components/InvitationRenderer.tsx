@@ -137,7 +137,7 @@ export const InvitationRenderer: React.FC<InvitationRendererProps> = ({
   if (showEnvelopeGate && !isOpened) {
     return (
       <div
-        className="relative min-h-[460px] sm:min-h-[620px] rounded-2xl sm:rounded-3xl overflow-hidden flex items-center justify-center p-4 sm:p-10 text-center shadow-2xl"
+        className="relative min-h-[460px] sm:min-h-[620px] rounded-2xl sm:rounded-3xl overflow-hidden flex items-center justify-center px-7 py-12 sm:p-12 text-center shadow-2xl"
         style={{
           backgroundColor: cfg.bgColor,
           color: cfg.textColor,
@@ -289,7 +289,7 @@ export const InvitationRenderer: React.FC<InvitationRendererProps> = ({
         <div
           ref={exportCardRef}
           className={`relative rounded-2xl overflow-hidden text-center ${
-            compactPreview ? 'px-3.5 py-6 sm:px-8 sm:py-10' : 'px-4 py-7 sm:px-12 sm:py-14'
+            compactPreview ? 'px-5 py-8 sm:px-8 sm:py-10' : 'px-5 py-9 sm:px-12 sm:py-14'
           }`}
           style={{
             backgroundColor: cfg.surfaceColor,

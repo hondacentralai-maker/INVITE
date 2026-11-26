@@ -181,7 +181,7 @@ export const PosterRenderer: React.FC<PosterRendererProps> = ({
             {/* Center Stage Portrait */}
             <div className="col-span-6 flex justify-center relative">
               <div
-                className="relative w-36 h-48 sm:w-64 sm:h-80 rounded-t-[4.5rem] sm:rounded-t-[7rem] rounded-b-2xl sm:rounded-b-3xl overflow-hidden border-2 shadow-2xl"
+                className="relative w-full max-w-[144px] sm:max-w-[256px] aspect-[3/4] rounded-t-[4.5rem] sm:rounded-t-[7rem] rounded-b-2xl sm:rounded-b-3xl overflow-hidden border-2 shadow-2xl"
                 style={{
                   borderColor: `${cfg.accentColor}88`,
                   boxShadow: `0 0 40px -6px ${cfg.accentColor}99`,
@@ -256,31 +256,31 @@ export const PosterRenderer: React.FC<PosterRendererProps> = ({
           </div>
 
           {/* Two-Night Date Split Boxes + Side Corner Callouts */}
-          <div className="grid grid-cols-12 items-center gap-1.5 sm:gap-3 pt-2">
-            <div className="col-span-2 sm:col-span-3 text-center text-[10px] sm:text-sm font-bold text-[#FDE68A] leading-tight">
+          <div className="grid grid-cols-12 items-center gap-2 sm:gap-3 pt-2">
+            <div className="col-span-6 order-2 sm:order-1 sm:col-span-3 text-center text-xs sm:text-sm font-bold text-[#FDE68A] leading-tight pt-1 sm:pt-0">
               {poster.cornerRightAr}
             </div>
 
-            <div className={`${poster.twoNightsEnabled ? 'col-span-8 sm:col-span-6 grid grid-cols-2 gap-2 sm:gap-3' : 'col-span-8 sm:col-span-6'}`}>
+            <div className={`${poster.twoNightsEnabled ? 'col-span-12 order-1 sm:order-2 sm:col-span-6 grid grid-cols-2 gap-2 sm:gap-3' : 'col-span-12 order-1 sm:order-2 sm:col-span-6'}`}>
               {/* Night 1 */}
               <div
-                className="rounded-xl sm:rounded-2xl border p-2 sm:p-3 bg-black/75 backdrop-blur-sm space-y-0.5 sm:space-y-1"
+                className="rounded-xl sm:rounded-2xl border p-2.5 sm:p-3 bg-black/75 backdrop-blur-sm space-y-0.5 sm:space-y-1 flex flex-col justify-center"
                 style={{ borderColor: `${cfg.accentColor}99` }}
               >
                 <span className="block text-[10px] sm:text-[11px] font-bold text-[#FFF6E5]/85">
                   {isAr ? poster.night1.labelAr : poster.night1.labelEn}
                 </span>
                 <span
-                  className="block text-xl sm:text-3xl font-black tabular-nums leading-tight"
+                  className="block text-2xl sm:text-3xl font-black tabular-nums leading-tight"
                   style={{ color: cfg.accentColor }}
                   dir="ltr"
                 >
                   {poster.night1.dateLabel}
                 </span>
-                <span className="block text-[10px] sm:text-[11px] font-semibold text-white/85 truncate">
+                <span className="block text-[11px] font-semibold text-white/90 leading-snug">
                   {isAr ? poster.night1.eventTitleAr : poster.night1.eventTitleEn}
                 </span>
-                <span className="block text-[9px] sm:text-[10px] text-[#FDE68A]/85 truncate">
+                <span className="block text-[10px] text-[#FDE68A]/85 leading-snug">
                   {isAr ? poster.night1.venueAr : poster.night1.venueEn}
                 </span>
               </div>
@@ -288,30 +288,30 @@ export const PosterRenderer: React.FC<PosterRendererProps> = ({
               {/* Night 2 */}
               {poster.twoNightsEnabled && (
                 <div
-                  className="rounded-xl sm:rounded-2xl border p-2 sm:p-3 bg-black/75 backdrop-blur-sm space-y-0.5 sm:space-y-1"
+                  className="rounded-xl sm:rounded-2xl border p-2.5 sm:p-3 bg-black/75 backdrop-blur-sm space-y-0.5 sm:space-y-1 flex flex-col justify-center"
                   style={{ borderColor: `${cfg.accentColor}99` }}
                 >
                   <span className="block text-[10px] sm:text-[11px] font-bold text-[#FFF6E5]/85">
                     {isAr ? poster.night2.labelAr : poster.night2.labelEn}
                   </span>
                   <span
-                    className="block text-xl sm:text-3xl font-black tabular-nums leading-tight"
+                    className="block text-2xl sm:text-3xl font-black tabular-nums leading-tight"
                     style={{ color: cfg.accentColor }}
                     dir="ltr"
                   >
                     {poster.night2.dateLabel}
                   </span>
-                  <span className="block text-[10px] sm:text-[11px] font-semibold text-white/85 truncate">
+                  <span className="block text-[11px] font-semibold text-white/90 leading-snug">
                     {isAr ? poster.night2.eventTitleAr : poster.night2.eventTitleEn}
                   </span>
-                  <span className="block text-[9px] sm:text-[10px] text-[#FDE68A]/85 truncate">
+                  <span className="block text-[10px] text-[#FDE68A]/85 leading-snug">
                     {isAr ? poster.night2.venueAr : poster.night2.venueEn}
                   </span>
                 </div>
               )}
             </div>
 
-            <div className="col-span-2 sm:col-span-3 text-center text-[10px] sm:text-sm font-bold text-[#FDE68A] leading-tight">
+            <div className="col-span-6 order-3 sm:col-span-3 text-center text-xs sm:text-sm font-bold text-[#FDE68A] leading-tight pt-1 sm:pt-0">
               {poster.cornerLeftAr}
             </div>
           </div>
@@ -372,7 +372,7 @@ export const PosterRenderer: React.FC<PosterRendererProps> = ({
           )}
 
           <h2
-            className="text-3xl sm:text-5xl font-bold leading-tight"
+            className="text-3xl sm:text-5xl font-bold leading-tight px-6 sm:px-10"
             style={{ fontFamily: `"Aref Ruqaa", ${arFont}`, color: '#5A4117' }}
           >
             {isAr ? poster.headlineAr : poster.headlineEn}
@@ -427,9 +427,9 @@ export const PosterRenderer: React.FC<PosterRendererProps> = ({
                 {isAr ? poster.night1.eventTitleAr : poster.night1.eventTitleEn}
               </h3>
 
-              <p className="text-[10px] sm:text-sm font-semibold text-[#524B40] flex items-center justify-center gap-1 truncate">
+              <p className="text-[11px] sm:text-sm font-semibold text-[#524B40] flex items-center justify-center gap-1 leading-snug">
                 <MapPin className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#8B6220] shrink-0" aria-hidden="true" />
-                <span className="truncate">{isAr ? poster.night1.venueAr : poster.night1.venueEn}</span>
+                <span>{isAr ? poster.night1.venueAr : poster.night1.venueEn}</span>
               </p>
             </div>
 
@@ -462,9 +462,9 @@ export const PosterRenderer: React.FC<PosterRendererProps> = ({
                   {isAr ? poster.night2.eventTitleAr : poster.night2.eventTitleEn}
                 </h3>
 
-                <p className="text-[10px] sm:text-sm font-semibold text-[#524B40] flex items-center justify-center gap-1 truncate">
+                <p className="text-[11px] sm:text-sm font-semibold text-[#524B40] flex items-center justify-center gap-1 leading-snug">
                   <MapPin className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#8B6220] shrink-0" aria-hidden="true" />
-                  <span className="truncate">{isAr ? poster.night2.venueAr : poster.night2.venueEn}</span>
+                  <span>{isAr ? poster.night2.venueAr : poster.night2.venueEn}</span>
                 </p>
               </div>
             )}

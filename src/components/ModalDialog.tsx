@@ -64,20 +64,20 @@ export const ModalDialog: React.FC<ModalDialogProps> = ({
       }}
       className={`w-[calc(100vw-1.5rem)] ${maxWidthClass} bg-[#FAF6EE] text-[#151412] border border-[#B89246]/30 rounded-2xl overflow-hidden`}
     >
-      <div className="flex items-center justify-between gap-4 px-6 py-4 border-b border-[#B89246]/20 bg-[#FFFFFF]/80">
-        <h1 id={titleId} className="text-lg font-bold tracking-tight text-[#151412]">
+      <div className="flex items-center justify-between gap-3 px-4 py-3.5 sm:px-6 sm:py-4 border-b border-[#B89246]/20 bg-[#FFFFFF]/80">
+        <h1 id={titleId} className="text-base sm:text-lg font-bold tracking-tight text-[#151412]">
           {title}
         </h1>
         <button
           type="button"
           onClick={() => dialogRef.current?.close()}
           aria-label="Close"
-          className="inline-flex items-center justify-center w-10 h-10 rounded-full text-[#524b40] hover:text-[#151412] hover:bg-[#151412]/5 transition-colors"
+          className="inline-flex items-center justify-center w-10 h-10 rounded-full text-[#524b40] hover:text-[#151412] hover:bg-[#151412]/5 transition-colors shrink-0"
         >
           <X className="w-5 h-5" />
         </button>
       </div>
-      <div className="p-6 max-h-[calc(90dvh-4.5rem)] overflow-y-auto">{children}</div>
+      <div className="p-3.5 sm:p-6 max-h-[calc(90dvh-4.25rem)] overflow-y-auto">{children}</div>
     </dialog>
   );
 };
